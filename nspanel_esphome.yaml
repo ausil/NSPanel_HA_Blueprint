@@ -100,6 +100,9 @@ rtttl:
   id: buzzer
   output: buzzer_out
 
+esp32_ble_tracker:
+  id: ble_tracker
+
 ##### UART FOR NEXTION DISPLAY #####
 uart:
   tx_pin: 16
@@ -123,6 +126,7 @@ api:
     ##### SERVICE TO UPDATE THE HMI FILE #####
     - service: upload_tft
       then:
+        - lambda: 'id(ble_tracker).stop_scan();'
         - lambda: 'id(disp1)->upload_tft();'
 
     ##### SERVICE TO UPDATE THE TFT FILE from URL #####
