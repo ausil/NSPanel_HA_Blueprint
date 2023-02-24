@@ -58,7 +58,10 @@ external_components:
 esphome:
   name: ${device_name}
   min_version: 2022.10.2
-
+  on_boot:
+    priority: 601
+    then:
+      - lambda: id(my_nextion).send_command_printf("DRAKJHSUYDGBNCJHGJKSHBDN");
 ##### TYPE OF ESP BOARD #####
 esp32:
   board: esp32dev
