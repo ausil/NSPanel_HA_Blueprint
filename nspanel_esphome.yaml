@@ -61,7 +61,7 @@ esphome:
   on_boot:
     priority: 601
     then:
-      - lambda: id(my_nextion).send_command_printf("DRAKJHSUYDGBNCJHGJKSHBDN");
+      - lambda: id(nextion_init).send_command_printf("DRAKJHSUYDGBNCJHGJKSHBDN");
 ##### TYPE OF ESP BOARD #####
 esp32:
   board: esp32dev
